@@ -1,0 +1,5 @@
+env
+feature_data/*
+final_data/*
+kline_data/*
+raw_data/*
