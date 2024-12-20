@@ -50,7 +50,7 @@ def process_csv_files(tickers):
         print(f"正在處理 {ticker} 的K線數據...")
         try:
             df = pd.read_csv(f"raw_data/{ticker}_data.csv", skiprows=2)
-            df.columns = ["Date", "Close", "High", "Low", "Open", "Volume"]
+            df.columns = ["Date", "Adj Close","Close", "High", "Low", "Open", "Volume"]
             df.set_index("Date", inplace=True)
             df.index = pd.to_datetime(df.index)
             kline_data[ticker] = calculate_kline_features(df)
