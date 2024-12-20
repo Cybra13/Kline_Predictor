@@ -3,6 +3,12 @@ import pandas as pd
 import numpy as np
 import os
 
+def create_folders():
+    folders = ['raw_data', 'kline_data', 'feature_data', 'final_data']
+    for folder in folders:
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
 def fetch_stock_data(tickers, start_date, end_date):
     data = {}
     for ticker in tickers:
@@ -106,6 +112,7 @@ if __name__ == "__main__":
     start_date = "2015-01-01"
     end_date = "2023-12-31"
 
+    create_folders()
     stock_data = fetch_stock_data(tickers, start_date, end_date)
     kline_data = process_csv_files(tickers)
     process_future_returns(tickers)
